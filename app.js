@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect } from "react";
 
-// ===== Mock / Seed Data =====
+
 const seed = [
   { id: 1, date: "2026-03-01", amount: 5000, category: "Salary", type: "income" },
   { id: 2, date: "2026-03-05", amount: 1000, category: "Food", type: "expense" },
@@ -11,7 +11,7 @@ const seed = [
 
 const categories = ["Salary", "Freelance", "Food", "Transport", "Shopping", "Bills", "Other"];
 
-// ===== Helpers =====
+
 const fmt = (n) => new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR", maximumFractionDigits: 0 }).format(n || 0);
 
 function groupByCategory(list) {
@@ -31,7 +31,6 @@ function groupByMonth(list) {
   return map;
 }
 
-// ===== Simple SVG Charts (no external libs) =====
 function BarChart({ data }) {
   const entries = Object.entries(data);
   const max = Math.max(1, ...entries.map(([, v]) => Math.abs(v)));
@@ -75,7 +74,7 @@ function LineChart({ data }) {
   );
 }
 
-// ===== Main App =====
+
 export default function App() {
   const [transactions, setTransactions] = useState(() => {
     const saved = localStorage.getItem("tx");
